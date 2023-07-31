@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<robot name="DRONE101" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find DRONE101_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find DRONE101_description)/urdf/DRONE101.trans" />
+<xacro:include filename="$(find DRONE101_description)/urdf/DRONE101.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.04909617681080206 0.03896353961879966 0.014293149520429496" rpy="0 0 0"/>
+    <mass value="0.07963019429962714"/>
+    <inertia ixx="0.000127" iyy="0.000159" izz="0.000241" ixy="-1e-06" iyz="0.0" ixz="-2e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_four_4">
+  <inertial>
+    <origin xyz="-3.290973221845017e-05 -2.389736358268668e-05 0.0040969278933331195" rpy="0 0 0"/>
+    <mass value="0.001323994230326824"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.144609 0.047602 -0.009621" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller_four_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.144609 0.047602 -0.009621" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller_four_4.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller_one_1">
+  <inertial>
+    <origin xyz="-3.238354105623842e-05 -2.3302850701588385e-05 0.004096608597479776" rpy="0 0 0"/>
+    <mass value="0.001323994230326824"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.048068 0.048861 -0.009568" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller_one_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.048068 0.048861 -0.009568" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller_one_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller__two_1">
+  <inertial>
+    <origin xyz="-3.2089726019771114e-05 -2.3481097744276758e-05 0.004096608597479795" rpy="0 0 0"/>
+    <mass value="0.001323994230326824"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.047541 -0.126072 -0.009568" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller__two_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.047541 -0.126072 -0.009568" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller__two_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="propeller__three_1">
+  <inertial>
+    <origin xyz="-3.281700793145159e-05 -2.305176035632961e-05 0.00409660859748032" rpy="0 0 0"/>
+    <mass value="0.001323994230326824"/>
+    <inertia ixx="0.0" iyy="1e-06" izz="1e-06" ixy="-0.0" iyz="-0.0" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.140459 -0.130281 -0.009568" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller__three_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.140459 -0.130281 -0.009568" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="package://DRONE101_description/meshes/propeller__three_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="Revolute 8" type="continuous">
+  <origin xyz="0.144609 -0.047602 0.009621" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="propeller_four_4"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 9" type="continuous">
+  <origin xyz="-0.048068 -0.048861 0.009568" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="propeller_one_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 10" type="continuous">
+  <origin xyz="-0.047541 0.126072 0.009568" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="propeller__two_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+<joint name="Revolute 11" type="continuous">
+  <origin xyz="0.140459 0.130281 0.009568" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="propeller__three_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>
