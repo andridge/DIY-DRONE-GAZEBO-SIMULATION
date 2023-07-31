@@ -13,7 +13,14 @@ This readme file provides the correct order of commands for executing a specific
 ```bash
 roscore
 4.include this folder with a your workspace folder inside a src folder
-4. Open another terminal on your workspace folder .
+5. Open another terminal on your workspace folder .
 catkin_make
 source devel/setup.bash
+6. Open another terminal on your workspace folder .
+chmod u+x '/control.py'
+chmod u+x '/pid.py'
 roslaunch DRONE101_description gazebo.launch
+7.Open another terminal
+rosrun DRONE101_description control.py
+or
+rostopic pub -1 /DRONE101/joint_motor_controller/command std_msgs/Float64MultiArray "data: [50, -50, 50, -50]"
